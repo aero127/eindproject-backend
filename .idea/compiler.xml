@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="security_with_users_table" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="security_with_jwt" target="14" />
+      <module name="security_with_users_table" target="11" />
+    </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="security_with_jwt" options="-parameters" />
+      <module name="security_with_users_table" options="-parameters" />
+    </option>
+  </component>
+</project>
