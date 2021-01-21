@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/security_with_users_table.iml" filepath="$PROJECT_DIR$/security_with_users_table.iml" />
+      <module fileurl="file://$PROJECT_DIR$/security_with_jwt.iml" filepath="$PROJECT_DIR$/security_with_jwt.iml" />
     </modules>
   </component>
 </project>

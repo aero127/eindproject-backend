@@ -4,7 +4,41 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="006f30c6-0312-4b99-a7fb-5187c14b423a" name="Default Changelist" comment="" />
+    <list default="true" id="006f30c6-0312-4b99-a7fb-5187c14b423a" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.name" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/security_with_users_table.iml" beforeDir="false" afterPath="$PROJECT_DIR$/security_with_jwt.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/data.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/nl/gettoworktogether/security_with_jwt/SecurityMain.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/nl/gettoworktogether/security_with_jwt/config/SpringSecurityConfig.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/nl/gettoworktogether/security_with_jwt/controller/AdminController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/nl/gettoworktogether/security_with_jwt/controller/AuthenticationController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/nl/gettoworktogether/security_with_jwt/controller/BaseController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/nl/gettoworktogether/security_with_jwt/controller/CustomersController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/nl/gettoworktogether/security_with_jwt/controller/ExceptionController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/nl/gettoworktogether/security_with_jwt/controller/UserController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/nl/gettoworktogether/security_with_jwt/exceptions/BadRequestException.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/nl/gettoworktogether/security_with_jwt/exceptions/RecordNotFoundException.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/nl/gettoworktogether/security_with_jwt/exceptions/UsernameNotFoundException.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/nl/gettoworktogether/security_with_jwt/filter/JwtRequestFilter.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/nl/gettoworktogether/security_with_jwt/model/AuthenticationRequest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/nl/gettoworktogether/security_with_jwt/model/AuthenticationResponse.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/nl/gettoworktogether/security_with_jwt/model/Authority.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/nl/gettoworktogether/security_with_jwt/model/AuthorityKey.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/nl/gettoworktogether/security_with_jwt/model/User.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/nl/gettoworktogether/security_with_jwt/repository/UserRepository.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/nl/gettoworktogether/security_with_jwt/service/CustomUserDetailsService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/nl/gettoworktogether/security_with_jwt/service/UserService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/nl/gettoworktogether/security_with_jwt/service/UserServiceImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/nl/gettoworktogether/security_with_jwt/utils/JwtUtil.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/nl/gettoworktogether/security_with_jwt/utils/RandomStringGenerator.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/nl/gettoworktogether/security_with_jwt/SecurityMainTests.class" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -18,7 +52,7 @@
     </option>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1iTBKwgtMYyn6yZT9uyaLKCPyzH" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -29,6 +63,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.15" />
@@ -59,7 +94,7 @@
       <option name="ALTERNATIVE_JRE_PATH" value="adopt-openjdk-14" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
       <option name="MAIN_CLASS_NAME" value="nl.gettoworktogether.security_with_jwt.SecurityMain" />
-      <module name="security_with_users_table" />
+      <module name="security_with_jwt" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="nl.gettoworktogether.security_with_jwt.*" />

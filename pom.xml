@@ -10,7 +10,7 @@
 	</parent>
 
 	<groupId>nl.gettoworktogether</groupId>
-	<artifactId>security_with_users_table</artifactId>
+	<artifactId>security_with_jwt</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 
 	<name>security_with_users_table</name>
