@@ -1,4 +1,4 @@
-package nl.gettoworktogether.security_with_jwt.model;
+package nl.gettoworktogether.security_with_jwt.payload;
 
 public class AuthenticationRequest {
 

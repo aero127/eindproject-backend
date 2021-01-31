@@ -1,7 +1,7 @@
 package nl.gettoworktogether.security_with_jwt.controller;
 
-import nl.gettoworktogether.security_with_jwt.model.AuthenticationRequest;
-import nl.gettoworktogether.security_with_jwt.model.AuthenticationResponse;
+import nl.gettoworktogether.security_with_jwt.payload.AuthenticationRequest;
+import nl.gettoworktogether.security_with_jwt.payload.AuthenticationResponse;
 import nl.gettoworktogether.security_with_jwt.service.CustomUserDetailsService;
 import nl.gettoworktogether.security_with_jwt.utils.JwtUtil;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,7 +11,6 @@ import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.web.bind.annotation.*;
 
 import java.security.Principal;
