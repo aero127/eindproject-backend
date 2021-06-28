@@ -1,69 +1,39 @@
 package com.mtbrental.eindproject.service;
 
-import com.mtbrental.eindproject.exception.RecordNotFoundException;
 import com.mtbrental.eindproject.model.Person;
+import com.mtbrental.eindproject.repositories.PersonRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class PersonServiceImpl implements PersonService {
 
-    private List<Person> persons = new ArrayList<>();
+    @Autowired
+    PersonRepository personRepository;
 
-    @Override
-    public List<Person> getPersons() { return persons; }
-
-    @Override
-    public Person getPerson(long id) {
-        Person person = null;
-        for (int i = 0; i < persons.size(); i++) {
-          if (id == persons.get(i).getId()) {
-              person = persons.get(i);
-          }
-        }
-        if (person == null) {
-            throw new RecordNotFoundException("id bestaat niet");
-        }
-        return person;
+    public List<Person> getPersons(){
+        return personRepository.findAll();
     }
 
-    @Override
-    public Person addPerson(Person person) {
-        persons.add(person);
-        return person;
+    public Person getPerson(long id){
+        return personRepository.getById(id);
     }
 
-    @Override
-    public void removePerson(long id) {
-        Person person = null;
-        for (int i = 0; i < persons.size(); i++) {
-           if (id == persons.get(i).getId()) {
-               persons.remove(i);
-           }
-        }
-        if (person == null) {
-            throw new RecordNotFoundException("id bestaat niet");
-        }
+    public Person addPerson(Person person){
+/*        Optional<Person> personOptional = personRepository.findPersonByEmailAdress(person.getEmailAdress());
+        if (personOptional.isPresent()) {
+            throw new IllegalStateException("email al in gebruik");
+        }*/
+        return personRepository.save(person);
     }
 
-    @Override
-    public void updatePerson(long id, Person newPerson) {
-        Person person = null;
-        for (int i = 0; i <persons.size() ; i++) {
-            if (id == persons.get(i).getId()) {
-                person = persons.get(i);
-            }
-        }
-        if (person == null) {
-            throw new RecordNotFoundException("id bestaat niet");
-        }
-        else {
-            person.setFirstName(newPerson.getFirstName());
-            person.setLastName(newPerson.getLastName());
-            person.setEmailAdress(newPerson.getEmailAdress());
-            person.setPassword(newPerson.getPassword());
-        }
+    public void removePerson(long id){
+        personRepository.deleteById(id);
     }
+
+    public void updatePerson(long id, Person person){}
+
 }

@@ -1,20 +1,39 @@
 package com.mtbrental.eindproject.model;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
+@Table
 public class Person {
 
     //attributen
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
+    @Column
     private String firstName;
+
+    @Column
     private String lastName;
+
+    @Column
     private String emailAdress;
+
+    @Column
     private String password;
 
+    @Lob
+    byte[] license;
+
+
+    public byte[] getLicense() {
+        return license;
+    }
+
+    public void setLicense(byte[] license) {
+        this.license = license;
+    }
 
     //getters & setters
     public long getId() {
