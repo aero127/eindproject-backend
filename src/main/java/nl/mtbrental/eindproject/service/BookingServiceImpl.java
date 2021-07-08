@@ -5,6 +5,7 @@ import nl.mtbrental.eindproject.repository.BookingRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Service
@@ -30,7 +31,28 @@ public class BookingServiceImpl implements BookingService {
     bookingRepository.deleteById(id);
     }
 
-    public void updateBooking(long id, Booking booking) {
+    public void updateBooking(long id) {
 
     }
+
+    @Override
+    public List<Booking> getBookingsForBike(Long bikeId) {
+        return null;
+    }
+
+    @Override
+    public List<Booking> getBookingsOnDate(LocalDateTime date) {
+        return null;
+    }
+
+    @Override
+    public List<Booking> getBookingsByUsername(String username) {
+        return null;
+    }
+
+    @Override
+    public Booking saveBooking(Booking booking, Long bikeId, String username, String startTime, LocalDateTime date) {
+        return null;
+    }
+
 }

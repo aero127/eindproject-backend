@@ -22,4 +22,9 @@ public class BikeServiceImpl implements BikeService {
     public void removeBike(long id) { bikeRepository.deleteById(id); }
 
     public void updateBike(long id, Bike bike) {}
+
+    public BikeServiceImpl(BikeRepository bikeRepository) {
+        this.bikeRepository = bikeRepository;
+    }
+    
 }

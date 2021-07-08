@@ -2,11 +2,11 @@ package nl.mtbrental.eindproject.model;
 
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 public class Bike {
 
-    //attributen
 
     @Column
     private String bikeName;
@@ -16,16 +16,18 @@ public class Bike {
     private long id;
 
     @Column
-    private int quantity;
+    private long quantityTotal;
 
     @Column
-    private boolean isAvailable;
+    private long pricePerDay;
 
-//    @Column
-//    private boolean spdPedals;
+    @Column
+    private long amount;
 
 
-    //getters & setters
+    @OneToMany(mappedBy = "bike")
+    List<Booking> bookings;
+
     public String getBikeName() {
         return bikeName;
     }
@@ -42,35 +44,35 @@ public class Bike {
         this.id = id;
     }
 
-    public int getQuantity() {
-        return quantity;
+    public List<Booking> getBookings() {
+        return bookings;
     }
 
-    public void setQuantity(int quantity) {
-        this.quantity = quantity;
+    public void setBookings(List<Booking> bookings) {
+        this.bookings = bookings;
     }
 
-    public boolean isAvailable() {
-        return isAvailable;
+    public long getPricePerDay() {
+        return pricePerDay;
     }
 
-    public void setAvailable(boolean available) {
-        isAvailable = available;
+    public void setPricePerDay(int pricePerDay) {
+        this.pricePerDay = pricePerDay;
     }
 
-    //    public boolean isHelmet() {
-//        return helmet;
-//    }
-//
-//    public void setHelmet(boolean helmet) {
-//        this.helmet = helmet;
-//    }
-//
-//    public boolean isSpdPedals() {
-//        return spdPedals;
-//    }
-//
-//    public void setSpdPedals(boolean spdPedals) {
-//        this.spdPedals = spdPedals;
-//    }
+    public long getQuantityTotal() {
+        return quantityTotal;
+    }
+
+    public void setQuantityTotal(int quantityTotal) {
+        this.quantityTotal = quantityTotal;
+    }
+
+    public long getAmount() {
+        return amount;
+    }
+
+    public void setAmount(int amount) {
+        this.amount = amount;
+    }
 }

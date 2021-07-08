@@ -1,29 +1,43 @@
 package nl.mtbrental.eindproject.controller;
 
 
+import nl.mtbrental.eindproject.dto.BikeDto;
+import nl.mtbrental.eindproject.dto.BikeInputDto;
 import nl.mtbrental.eindproject.model.Bike;
 import nl.mtbrental.eindproject.service.BikeService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import javax.persistence.Id;
+import java.util.ArrayList;
+import java.util.List;
 
+@CrossOrigin
 @RestController
 @RequestMapping("/bikes")
 public class BikeController {
 
-    @Autowired
-    private BikeService bikeService;
+    private final BikeService bikeService;
+
+    public BikeController(BikeService bikeService) {
+        this.bikeService = bikeService;
+    }
+
 
     @GetMapping("")
     public ResponseEntity<Object> getBikes() {return ResponseEntity.ok(bikeService.getBikes());}
 
-    @PostMapping("")
-    public ResponseEntity<Object> addBike(@RequestBody Bike bike) {
-        bikeService.addBike(bike);
-        return ResponseEntity.ok("added");
+//    @PostMapping("")
+//    public ResponseEntity<Object> addBike(@RequestBody Bike bike) {
+//        bikeService.addBike(bike);
+//        return ResponseEntity.ok("added");
+//    }
+
+    @PostMapping
+    public BikeDto saveBoat(@RequestBody BikeInputDto dto) {
+        var bike = bikeService.addBike(dto.toBike());
+        return BikeDto.fromBike(bike);
     }
+
 
     @GetMapping("/{id}")
     public ResponseEntity<Object> getBikes(@PathVariable("id") long id) {

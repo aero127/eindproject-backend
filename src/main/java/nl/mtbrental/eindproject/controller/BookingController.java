@@ -1,42 +1,60 @@
 package nl.mtbrental.eindproject.controller;
 
-
-
+import nl.mtbrental.eindproject.dto.BookingDto;
+import nl.mtbrental.eindproject.dto.BookingInputDto;
+import nl.mtbrental.eindproject.exceptions.BadRequestException;
 import nl.mtbrental.eindproject.model.Booking;
 import nl.mtbrental.eindproject.service.BookingService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
+
+@CrossOrigin
 @RestController
 @RequestMapping("/bookings")
 public class BookingController {
-
-    @Autowired
     private final BookingService bookingService;
 
-    public BookingController(BookingService bookingService) { this.bookingService = bookingService; }
-
-    @GetMapping("")
-    public ResponseEntity<Object> getBookings() {return ResponseEntity.ok(bookingService.getBookings());}
-
-    @PostMapping("")
-    public ResponseEntity<Object> addBooking(@RequestBody Booking booking) {
-        bookingService.addBooking(booking);
-        return ResponseEntity.ok("added");
+    @Autowired
+    public BookingController(BookingService bookingService) {
+        this.bookingService = bookingService;
     }
 
-    @GetMapping("/{id}")
-    public ResponseEntity<Object> getBookings(@PathVariable("id") long id) {
-        Booking booking = (Booking) bookingService.getBookings(id);
-        return ResponseEntity.ok(booking);
+    @GetMapping
+    public List<BookingDto> getBookings(@RequestParam(value = "bikeId", required = false) Long bikeId,
+                                        @RequestParam(value = "username", required = false) String username,
+                                        @RequestParam(value = "date", required = false) @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) LocalDateTime date) {
+        var dtos = new ArrayList<BookingDto>();
+
+        List<Booking> bookings;
+        if (bikeId != null && username == null && date == null) {
+            bookings = bookingService.getBookingsForBike(bikeId);
+
+        } else if (username != null && bikeId == null && date == null) {
+            bookings = bookingService.getBookingsByUsername(username);
+
+        } else if (date != null && username == null && bikeId == null) {
+            bookings = bookingService.getBookingsOnDate(date);
+
+        } else {
+            throw new BadRequestException();
+        }
+
+        for (Booking booking : bookings) {
+            dtos.add(BookingDto.fromBooking(booking));
+        }
+
+        return dtos;
     }
 
-    @PutMapping("/{id}")
-    public ResponseEntity<Object> removeBooking(@PathVariable("id") long id) {
-        bookingService.removeBooking(id);
-        return ResponseEntity.noContent().build();
+    @PostMapping
+    public BookingDto saveBooking(@RequestBody BookingInputDto dto) {
+        var booking = bookingService.saveBooking(dto.toBooking(), dto.bikeId, dto.username, dto.startTime, dto.date);
+        return BookingDto.fromBooking(booking);
     }
-
 }
-

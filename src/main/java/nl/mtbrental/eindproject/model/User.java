@@ -4,6 +4,7 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 
 import javax.persistence.*;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -35,6 +36,9 @@ public class User {
 
     @Lob
     byte[] identification;
+
+    @OneToMany(mappedBy = "user")
+    List<Booking> bookings;
 
     @OneToMany(
             targetEntity = Authority.class,
@@ -93,4 +97,11 @@ public class User {
         this.authorities.remove(authority);
     }
 
+    public List<Booking> getBookings() {
+        return bookings;
+    }
+
+    public void setBookings(List<Booking> bookings) {
+        this.bookings = bookings;
+    }
 }
