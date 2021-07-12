@@ -9,15 +9,15 @@ public interface BookingService {
 
     List<Booking> getBookings();
     Booking getBookings(long id);
-    Booking addBooking(Booking booking);
-    void removeBooking(long id);
-    void updateBooking(long id);
+//    Booking addBooking(Booking booking);
+//    void removeBooking(long id);
+//    void updateBooking(long id);
 
-    List<Booking> getBookingsForBike(Long bikeId);
+//    List<Booking> getBookingsForBike(Long bikeId);
 
     List<Booking> getBookingsOnDate(LocalDateTime date);
 
     List<Booking> getBookingsByUsername(String username);
 
-    Booking saveBooking(Booking booking, Long bikeId, String username, String startTime, LocalDateTime date);
+    Booking saveBooking(Booking booking, Long bikeId, String username);
 }

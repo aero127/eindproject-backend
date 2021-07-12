@@ -10,21 +10,29 @@ import java.util.List;
 
 @Service
 public class BikeServiceImpl implements BikeService {
+
+    private BikeRepository repository;
+
     @Autowired
-    BikeRepository bikeRepository;
+    public BikeServiceImpl(BikeRepository repository) {
+        this.repository = repository;
+    }
 
-    public List<Bike> getBikes() { return bikeRepository.findAll(); }
+    @Override
+    public List<Bike> getBike() { return repository.findAll(); }
 
-    public Bike getBikes(long id) { return bikeRepository.getById(id); }
+    @Override
+    public Bike getBikes(long id) { return repository.getById(id); }
 
-    public Bike addBike(Bike bike) { return bikeRepository.save(bike); }
+    @Override
+    public Bike addBike(Bike bike) { return repository.save(bike); }
 
-    public void removeBike(long id) { bikeRepository.deleteById(id); }
+    @Override
+    public void removeBike(long id) { repository.deleteById(id); }
 
+    @Override
     public void updateBike(long id, Bike bike) {}
 
-    public BikeServiceImpl(BikeRepository bikeRepository) {
-        this.bikeRepository = bikeRepository;
-    }
+
     
 }

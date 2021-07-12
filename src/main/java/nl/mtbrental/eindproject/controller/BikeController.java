@@ -24,7 +24,7 @@ public class BikeController {
 
 
     @GetMapping("")
-    public ResponseEntity<Object> getBikes() {return ResponseEntity.ok(bikeService.getBikes());}
+    public ResponseEntity<Object> getBike() {return ResponseEntity.ok(bikeService.getBike());}
 
 //    @PostMapping("")
 //    public ResponseEntity<Object> addBike(@RequestBody Bike bike) {
@@ -33,7 +33,7 @@ public class BikeController {
 //    }
 
     @PostMapping
-    public BikeDto saveBoat(@RequestBody BikeInputDto dto) {
+    public BikeDto saveBike(@RequestBody BikeInputDto dto) {
         var bike = bikeService.addBike(dto.toBike());
         return BikeDto.fromBike(bike);
     }

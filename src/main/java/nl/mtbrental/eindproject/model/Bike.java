@@ -13,16 +13,16 @@ public class Bike {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private Long id;
 
     @Column
-    private long quantityTotal;
+    private Long quantityTotal;
 
     @Column
-    private long pricePerDay;
+    private Long pricePerDay;
 
     @Column
-    private long amount;
+    private Long amount;
 
 
     @OneToMany(mappedBy = "bike")
@@ -40,7 +40,7 @@ public class Bike {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -56,7 +56,7 @@ public class Bike {
         return pricePerDay;
     }
 
-    public void setPricePerDay(int pricePerDay) {
+    public void setPricePerDay(Long pricePerDay) {
         this.pricePerDay = pricePerDay;
     }
 
@@ -64,7 +64,7 @@ public class Bike {
         return quantityTotal;
     }
 
-    public void setQuantityTotal(int quantityTotal) {
+    public void setQuantityTotal(Long quantityTotal) {
         this.quantityTotal = quantityTotal;
     }
 
@@ -72,7 +72,7 @@ public class Bike {
         return amount;
     }
 
-    public void setAmount(int amount) {
+    public void setAmount(Long amount) {
         this.amount = amount;
     }
 }

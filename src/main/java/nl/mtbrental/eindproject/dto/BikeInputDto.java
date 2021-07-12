@@ -4,8 +4,8 @@ import nl.mtbrental.eindproject.model.Bike;
 
 public class BikeInputDto {
     public String bikeName;
-    public int quantityTotal;
-    public int pricePerDay;
+    public Long quantityTotal;
+    public Long pricePerDay;
 
     public Bike toBike() {
         var bike = new Bike();

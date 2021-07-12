@@ -1,5 +1,7 @@
 package nl.mtbrental.eindproject.controller;
 
+import nl.mtbrental.eindproject.dto.BikeDto;
+import nl.mtbrental.eindproject.dto.BikeInputDto;
 import nl.mtbrental.eindproject.dto.BookingDto;
 import nl.mtbrental.eindproject.dto.BookingInputDto;
 import nl.mtbrental.eindproject.exceptions.BadRequestException;
@@ -26,19 +28,15 @@ public class BookingController {
     }
 
     @GetMapping
-    public List<BookingDto> getBookings(@RequestParam(value = "bikeId", required = false) Long bikeId,
-                                        @RequestParam(value = "username", required = false) String username,
+    public List<BookingDto> getBookings(@RequestParam(value = "username", required = false) String username,
                                         @RequestParam(value = "date", required = false) @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) LocalDateTime date) {
         var dtos = new ArrayList<BookingDto>();
 
         List<Booking> bookings;
-        if (bikeId != null && username == null && date == null) {
-            bookings = bookingService.getBookingsForBike(bikeId);
-
-        } else if (username != null && bikeId == null && date == null) {
+        if (username != null && date == null) {
             bookings = bookingService.getBookingsByUsername(username);
 
-        } else if (date != null && username == null && bikeId == null) {
+        } else if (date != null && username == null) {
             bookings = bookingService.getBookingsOnDate(date);
 
         } else {
@@ -54,7 +52,8 @@ public class BookingController {
 
     @PostMapping
     public BookingDto saveBooking(@RequestBody BookingInputDto dto) {
-        var booking = bookingService.saveBooking(dto.toBooking(), dto.bikeId, dto.username, dto.startTime, dto.date);
+        var booking = bookingService.saveBooking(dto.toBooking(), dto.bikeId, dto.username);
         return BookingDto.fromBooking(booking);
     }
+
 }

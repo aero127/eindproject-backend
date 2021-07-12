@@ -25,13 +25,19 @@ public class BookingDto {
     @JsonSerialize(using = LocalDateTimeSerializer.class)
     LocalDateTime date;
 
+    @JsonSerialize
+    Long price;
+
+
+
     public static BookingDto fromBooking(Booking booking) {
         var dto = new BookingDto();
         dto.id = booking.getId();
         dto.bike = BikeDto.fromBike(booking.getBike());
-        dto.user = UserDto.fromUser(booking.getUser());
+    //    dto.user = UserDto.fromUser(booking.getUser());
         dto.startTime = booking.getStartTime();
         dto.date = booking.getDate();
+        dto.price = booking.getPrice();
         return dto;
     }
 

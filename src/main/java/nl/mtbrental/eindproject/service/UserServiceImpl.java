@@ -11,12 +11,16 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.Collection;
+import java.util.List;
 import java.util.Optional;
 import java.util.Set;
 
 @Service
 public class UserServiceImpl implements UserService {
+    private UserRepository repository;
 
+    @Autowired
+    public UserServiceImpl(UserRepository repository) { this.repository = repository; }
 
     @Autowired
     private PasswordEncoder passwordEncoder;
@@ -29,8 +33,13 @@ public class UserServiceImpl implements UserService {
 //    private AuthorityRepository authorityRepository;
 
     @Override
-    public Collection<User> getUsers() {
+    public List<User> getUsers() {
         return userRepository.findAll();
+    }
+
+    @Override
+    public User getUserr(String username) {
+        return userRepository.findByUsername(username);
     }
 
     @Override

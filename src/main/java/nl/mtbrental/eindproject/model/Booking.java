@@ -7,12 +7,12 @@ import java.time.LocalDateTime;
 public class Booking {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    @GeneratedValue
+    private Long id;
 
-    private long price;
+    private Long price;
 
-    private long quantityTotal;
+    private Long quantityTotal;
 
     private LocalDateTime date;
 
@@ -27,19 +27,19 @@ public class Booking {
     private String startTime;
 
 
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
-    public long getPrice() {
+    public Long getPrice() {
         return price;
     }
 
-    public void setPrice(long price) {
+    public void setPrice(Long price) {
         this.price = price;
     }
 
@@ -90,5 +90,6 @@ public class Booking {
     public void setBike(Bike bike) {
         this.bike = bike;
     }
+
 }
 

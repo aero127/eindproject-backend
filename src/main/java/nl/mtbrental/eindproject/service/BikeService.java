@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface BikeService {
 
-    List<Bike> getBikes();
+    List<Bike> getBike();
     Bike getBikes(long id);
     Bike addBike(Bike bike);
     void removeBike(long id);
