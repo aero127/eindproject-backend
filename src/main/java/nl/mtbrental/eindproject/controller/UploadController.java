@@ -3,7 +3,7 @@ package nl.mtbrental.eindproject.controller;
 
 import nl.mtbrental.eindproject.dto.UploadRequestDto;
 import nl.mtbrental.eindproject.dto.UploadResponseDto;
-import nl.mtbrental.eindproject.model.UploadFile;
+import nl.mtbrental.eindproject.model.Upload;
 import nl.mtbrental.eindproject.service.UploadService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.Resource;
@@ -14,11 +14,9 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import java.net.URI;
-import java.util.List;
-import java.util.Optional;
 
 @RestController
-@RequestMapping("api/users/upload")
+@RequestMapping("api/upload")
 @CrossOrigin
 public class UploadController {
 
@@ -27,7 +25,7 @@ public class UploadController {
 
     @GetMapping("/files")
     public ResponseEntity<Object> getFiles() {
-        Iterable<UploadFile> files = uploadService.getFiles();
+        Iterable<Upload> files = uploadService.getFiles();
         return ResponseEntity.ok().body(files);
     }
 
@@ -56,7 +54,8 @@ public class UploadController {
         URI location = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}")
                 .buildAndExpand(newId).toUri();
 
-        return ResponseEntity.created(location).body(location);
+        return ResponseEntity.ok("gelukt!");
+      //  return ResponseEntity.created(location).body(location);
     }
 
     @DeleteMapping("/files/{id}")

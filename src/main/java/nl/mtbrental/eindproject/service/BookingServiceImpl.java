@@ -1,5 +1,7 @@
 package nl.mtbrental.eindproject.service;
 
+import nl.mtbrental.eindproject.exceptions.NotFoundException;
+import nl.mtbrental.eindproject.model.Bike;
 import nl.mtbrental.eindproject.model.Booking;
 import nl.mtbrental.eindproject.repository.BikeRepository;
 import nl.mtbrental.eindproject.repository.BookingRepository;
@@ -62,4 +64,20 @@ public class BookingServiceImpl implements BookingService {
         return bookingRepository.save(booking);
     }
 
+    @Override
+    public List<Booking> getBookingsForBike(Long bikeId) {
+        return null;
+    }
+
+    @Override
+    public List<Booking> getBookingsForUser(String username) {
+        var optionalUser = userRepository.findById(username);
+
+        if (optionalUser.isPresent()) {
+            var user = optionalUser.get();
+            return bookingRepository.findByUser(user);
+        } else {
+            throw new NotFoundException();
+        }
+    }
 }

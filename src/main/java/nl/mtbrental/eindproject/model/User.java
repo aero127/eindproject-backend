@@ -37,6 +37,7 @@ public class User {
     @Lob
     byte[] identification;
 
+
     @OneToMany(mappedBy = "user")
     List<Booking> bookings;
 

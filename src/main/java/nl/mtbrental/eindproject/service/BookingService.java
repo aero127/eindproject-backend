@@ -20,4 +20,8 @@ public interface BookingService {
     List<Booking> getBookingsByUsername(String username);
 
     Booking saveBooking(Booking booking, Long bikeId, String username);
+
+    List<Booking> getBookingsForBike(Long bikeId);
+
+    List<Booking> getBookingsForUser(String username);
 }

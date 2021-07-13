@@ -6,7 +6,7 @@ public class BikeDto {
     public Long id;
     public String bikeName;
     public Long quantityTotal;
-    private Long pricePerDay;
+    public Long pricePerDay;
 
     public static BikeDto fromBike(Bike bike) {
         if (bike == null) return null;

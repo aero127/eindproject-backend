@@ -4,7 +4,7 @@ import nl.mtbrental.eindproject.dto.UploadRequestDto;
 import nl.mtbrental.eindproject.dto.UploadResponseDto;
 import nl.mtbrental.eindproject.exceptions.FileStorageException;
 import nl.mtbrental.eindproject.exceptions.RecordNotFoundException;
-import nl.mtbrental.eindproject.model.UploadFile;
+import nl.mtbrental.eindproject.model.Upload;
 import nl.mtbrental.eindproject.repository.UploadRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -30,7 +30,7 @@ public class UploadServiceImpl implements UploadService {
 
     @Value("${app.upload.dir:${user.home}}")
     private String uploadDirectory;  // relative to root
-    private final Path uploads = Paths.get("uploadfiles");
+    private final Path uploads = Paths.get("uploads");
 
     @Autowired
     private UploadRepository repository;
@@ -45,7 +45,7 @@ public class UploadServiceImpl implements UploadService {
     }
 
     @Override
-    public Iterable<UploadFile> getFiles() {
+    public Iterable<Upload> getFiles() {
         return repository.findAll();
     }
 
@@ -53,7 +53,7 @@ public class UploadServiceImpl implements UploadService {
 
         MultipartFile file = uploadDto.getFile();
 
-        String originalFilename = StringUtils.cleanPath(Objects.requireNonNull(file.getOriginalFilename()));
+        String originalFilename = StringUtils.cleanPath(file.getOriginalFilename());
         Path copyLocation = this.uploads.resolve(file.getOriginalFilename());
 
         try {
@@ -62,20 +62,39 @@ public class UploadServiceImpl implements UploadService {
             throw new FileStorageException("Could not store file " + originalFilename + ". Please try again!");
         }
 
-        UploadFile newFileToStore = new UploadFile();
+        Upload newFileToStore = new Upload();
         newFileToStore.setFileName(originalFilename);
         newFileToStore.setLocation(copyLocation.toString());
-//        newFileToStore.setTitle(method1Dto.getTitle());
-//        newFileToStore.setDescription(method1Dto.getDescription());
-
-        UploadFile saved = repository.save(newFileToStore);
+//hier iets toevoegen voor uploaded by ?
+        Upload saved = repository.save(newFileToStore);
 
         return saved.getId();
     }
 
     @Override
+    public void deleteFile(long id) {
+        Optional<Upload> stored = repository.findById(id);
+
+        if (stored.isPresent()) {
+            String filename = stored.get().getFileName();
+            Path location = this.uploads.resolve(filename);
+            try {
+                Files.deleteIfExists(location);
+            }
+            catch (IOException ex) {
+                throw new RuntimeException("File not found");
+            }
+
+            repository.deleteById(id);
+        }
+        else {
+            throw new RecordNotFoundException();
+        }
+    }
+
+    @Override
     public UploadResponseDto getFileById(long id) {
-        Optional<UploadFile> stored = repository.findById(id);
+        Optional<Upload> stored = repository.findById(id);
 
         if (stored.isPresent()) {
             URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}")
@@ -85,10 +104,11 @@ public class UploadServiceImpl implements UploadService {
             responseDto.setFileName(stored.get().getFileName());
 //            responseDto.setTitle(stored.get().getTitle());
 //            responseDto.setDescription(stored.get().getDescription());
-            responseDto.setMediaType(stored.get().getMediaType());
+//            responseDto.setMediaType(stored.get().getMediaType());
             responseDto.setDownloadUri(uri.toString());
             return responseDto;
-        } else {
+        }
+        else {
             throw new RecordNotFoundException();
         }
     }
@@ -98,29 +118,9 @@ public class UploadServiceImpl implements UploadService {
         return repository.existsById(id);
     }
 
-
-    @Override
-    public void deleteFile(long id) {
-        Optional<UploadFile> stored = repository.findById(id);
-
-        if (stored.isPresent()) {
-            String filename = stored.get().getFileName();
-            Path location = this.uploads.resolve(filename);
-            try {
-                Files.deleteIfExists(location);
-            } catch (IOException ex) {
-                throw new RuntimeException("File not found");
-            }
-
-            repository.deleteById(id);
-        } else {
-            throw new RecordNotFoundException();
-        }
-    }
-
     @Override
     public Resource downloadFile(long id) {
-        Optional<UploadFile> stored = repository.findById(id);
+        Optional<Upload> stored = repository.findById(id);
 
         if (stored.isPresent()) {
             String filename = stored.get().getFileName();
@@ -128,15 +128,17 @@ public class UploadServiceImpl implements UploadService {
 
             Resource resource = null;
             try {
-                resource = new UrlResource(path.toUri());
+                resource = new UrlResource(path .toUri());
                 return resource;
             } catch (MalformedURLException e) {
                 e.printStackTrace();
             }
-        } else {
+        }
+        else {
             throw new RecordNotFoundException();
         }
 
         return null;
     }
+
 }

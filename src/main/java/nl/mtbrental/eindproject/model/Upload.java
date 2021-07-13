@@ -7,8 +7,8 @@ import java.util.Date;
 
 @Entity
 @Data
-@Table(name = "upload_files")
-public class UploadFile {
+@Table(name = "upload")
+public class Upload {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
