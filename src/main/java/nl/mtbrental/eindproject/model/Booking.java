@@ -43,7 +43,7 @@ public class Booking {
         this.price = price;
     }
 
-    public long getQuantityTotal() {
+    public Long getQuantityTotal() {
         return quantityTotal;
     }
 

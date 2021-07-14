@@ -1,6 +1,8 @@
 package nl.mtbrental.eindproject.service;
 
+import nl.mtbrental.eindproject.model.Bike;
 import nl.mtbrental.eindproject.model.Booking;
+import nl.mtbrental.eindproject.model.User;
 
 import java.time.LocalDateTime;
 import java.util.List;

@@ -54,7 +54,8 @@ public class UploadController {
         URI location = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}")
                 .buildAndExpand(newId).toUri();
 
-        return ResponseEntity.ok("gelukt!");
+        //return ResponseEntity.noContent().build();
+        return ResponseEntity.ok("het uploaden is gelukt!");
       //  return ResponseEntity.created(location).body(location);
     }
 

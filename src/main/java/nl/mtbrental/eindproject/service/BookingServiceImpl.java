@@ -1,5 +1,6 @@
 package nl.mtbrental.eindproject.service;
 
+import nl.mtbrental.eindproject.exceptions.BadRequestException;
 import nl.mtbrental.eindproject.exceptions.NotFoundException;
 import nl.mtbrental.eindproject.model.Bike;
 import nl.mtbrental.eindproject.model.Booking;
@@ -36,6 +37,7 @@ public class BookingServiceImpl implements BookingService {
         return bookingRepository.getById(id);
     }
 
+
     public Booking addBooking(Booking booking) {
         return bookingRepository.save(booking);
     }
@@ -49,27 +51,54 @@ public class BookingServiceImpl implements BookingService {
     }
 
 
-    @Override
+
     public List<Booking> getBookingsOnDate(LocalDateTime date) {
         return bookingRepository.findBookingByDate(date);
     }
+
+
+
 
     @Override
     public List<Booking> getBookingsByUsername(String username) {
         return bookingRepository.findBookingByUser(username);
     }
 
+//    @Override
+//    public Booking saveBooking(Booking booking, Long bikeId, String username) {
+//        return bookingRepository.save(booking);
+//    }
+
     @Override
     public Booking saveBooking(Booking booking, Long bikeId, String username) {
-        return bookingRepository.save(booking);
+        var optionalUser = userRepository.findById(username);
+        var optionalBike = bikeRepository.findById(bikeId);
+
+        if (optionalUser.isPresent() && optionalBike.isPresent()) {
+            var user = optionalUser.get();
+            var bike = optionalBike.get();
+
+            var overlappingStartBookings = bookingRepository.findBookingByDate(booking.getDate());
+            if (overlappingStartBookings.size() > 250 ) {
+                throw new BadRequestException();
+            }
+
+            booking.setUser(user);
+            booking.setBike(bike);
+            return bookingRepository.save(booking);
+        } else {
+            throw new NotFoundException();
+        }
     }
+
 
     @Override
     public List<Booking> getBookingsForBike(Long bikeId) {
-        return null;
+        return bookingRepository.findByBike(bikeId);
     }
 
-    @Override
+
+
     public List<Booking> getBookingsForUser(String username) {
         var optionalUser = userRepository.findById(username);
 

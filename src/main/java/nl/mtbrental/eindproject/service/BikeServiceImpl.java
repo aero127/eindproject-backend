@@ -22,16 +22,16 @@ public class BikeServiceImpl implements BikeService {
     public List<Bike> getBike() { return repository.findAll(); }
 
     @Override
-    public Bike getBikes(long id) { return repository.getById(id); }
+    public Bike getBikes(Long id) { return repository.getById(id); }
 
     @Override
     public Bike addBike(Bike bike) { return repository.save(bike); }
 
     @Override
-    public void removeBike(long id) { repository.deleteById(id); }
+    public void removeBike(Long id) { repository.deleteById(id); }
 
     @Override
-    public void updateBike(long id, Bike bike) {}
+    public void updateBike(Long id, Bike bike) {}
 
 
     
