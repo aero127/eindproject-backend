@@ -16,9 +16,9 @@ import java.util.List;
 @Service
 public class BookingServiceImpl implements BookingService {
 
-    private BookingRepository bookingRepository;
-    private BikeRepository bikeRepository;
-    private UserRepository userRepository;
+    private final BookingRepository bookingRepository;
+    private final BikeRepository bikeRepository;
+    private final UserRepository userRepository;
 
     @Autowired
     public BookingServiceImpl(BookingRepository bookingRepository, BikeRepository bikeRepository, UserRepository userRepository) {
@@ -38,6 +38,7 @@ public class BookingServiceImpl implements BookingService {
     }
 
 
+
     public Booking addBooking(Booking booking) {
         return bookingRepository.save(booking);
     }
@@ -52,8 +53,18 @@ public class BookingServiceImpl implements BookingService {
 
 
 
-    public List<Booking> getBookingsOnDate(LocalDateTime date) {
-        return bookingRepository.findBookingByDate(date);
+    public List<Booking> getBookingsOnDate(LocalDateTime date, String username, Long bikeId) {
+        var optionalUser = userRepository.findById(username);
+        var optionalBike = bikeRepository.findById(bikeId);
+
+        if (optionalUser.isPresent() && optionalBike.isPresent()) {
+            var user = optionalUser.get();
+            var bike = optionalBike.get();
+
+            return bookingRepository.findBookingByDate(date);
+        } else {
+            throw new NotFoundException();
+        }
     }
 
 
@@ -61,8 +72,16 @@ public class BookingServiceImpl implements BookingService {
 
     @Override
     public List<Booking> getBookingsByUsername(String username) {
-        return bookingRepository.findBookingByUser(username);
+        var optionalUser = userRepository.findById(username);
+
+        if (optionalUser.isPresent()) {
+            var user = optionalUser.get();
+            return bookingRepository.findByUser(user);
+        } else {
+            throw new NotFoundException();
+        }
     }
+
 
 //    @Override
 //    public Booking saveBooking(Booking booking, Long bikeId, String username) {
@@ -94,9 +113,15 @@ public class BookingServiceImpl implements BookingService {
 
     @Override
     public List<Booking> getBookingsForBike(Long bikeId) {
-        return bookingRepository.findByBike(bikeId);
-    }
+        var optionalBike = bikeRepository.findById(bikeId);
 
+        if (optionalBike.isPresent()) {
+            var bike = optionalBike.get();
+            return bookingRepository.findByBike(bike);
+        } else {
+            throw new NotFoundException();
+        }
+    }
 
 
     public List<Booking> getBookingsForUser(String username) {

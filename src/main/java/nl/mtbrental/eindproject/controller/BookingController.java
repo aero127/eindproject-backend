@@ -29,15 +29,19 @@ public class BookingController {
 
     @GetMapping
     public List<BookingDto> getBookings(@RequestParam(value = "username", required = false) String username,
-                                        @RequestParam(value = "date", required = false) @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) LocalDateTime date) {
+                                        @RequestParam(value = "date", required = false) @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) LocalDateTime date,
+                                        @RequestParam(value = "bikeId", required = false) Long bikeId) {
         var dtos = new ArrayList<BookingDto>();
 
         List<Booking> bookings;
-        if (username != null && date == null) {
+        if (username != null && date == null && bikeId == null) {
             bookings = bookingService.getBookingsByUsername(username);
 
-        } else if (date != null && username == null) {
-            bookings = bookingService.getBookingsOnDate(date);
+        } else if (date != null && username == null && bikeId == null) {
+            bookings = bookingService.getBookingsOnDate(date, username, bikeId);
+
+        } else if (date == null && username == null && bikeId != null) {
+            bookings = bookingService.getBookingsForBike(bikeId);
 
         } else {
             throw new BadRequestException();

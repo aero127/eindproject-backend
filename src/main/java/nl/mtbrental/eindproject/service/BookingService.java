@@ -17,7 +17,7 @@ public interface BookingService {
 
 //    List<Booking> getBookingsForBike(Long bikeId);
 
-    List<Booking> getBookingsOnDate(LocalDateTime date);
+    List<Booking> getBookingsOnDate(LocalDateTime date, String username, Long bikeId);
 
     List<Booking> getBookingsByUsername(String username);
 
