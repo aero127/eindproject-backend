@@ -57,7 +57,7 @@ public class BookingServiceImpl implements BookingService {
         var optionalUser = userRepository.findById(username);
         var optionalBike = bikeRepository.findById(bikeId);
 
-        if (optionalUser.isPresent() && optionalBike.isPresent()) {
+        if (optionalUser.isPresent() || optionalBike.isPresent()) {
             var user = optionalUser.get();
             var bike = optionalBike.get();
 
@@ -98,7 +98,9 @@ public class BookingServiceImpl implements BookingService {
             var bike = optionalBike.get();
 
             var overlappingStartBookings = bookingRepository.findBookingByDate(booking.getDate());
-            if (overlappingStartBookings.size() > 250 ) {
+            bike.setQuantityTotal((long) (bike.getQuantityTotal() - booking.getAmount()));
+            System.out.println(bike.getQuantityTotal());
+            if (bike.getQuantityTotal() < 1 ) {
                 throw new BadRequestException();
             }
 
@@ -129,7 +131,7 @@ public class BookingServiceImpl implements BookingService {
 
         if (optionalUser.isPresent()) {
             var user = optionalUser.get();
-            return bookingRepository.findByUser(user);
+            return bookingRepository.findBookingByUser(user);
         } else {
             throw new NotFoundException();
         }

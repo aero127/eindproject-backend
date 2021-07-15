@@ -25,5 +25,5 @@ public interface BookingService {
 
     List<Booking> getBookingsForBike(Long bikeId);
 
-    List<Booking> getBookingsForUser(String username);
+//    List<Booking> getBookingsForUser(String username);
 }

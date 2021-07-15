@@ -12,7 +12,7 @@ public class Booking {
 
     private Long price;
 
-    private Long quantityTotal;
+//    private Long quantityTotal;
 
     private LocalDateTime date;
 
@@ -43,13 +43,13 @@ public class Booking {
         this.price = price;
     }
 
-    public Long getQuantityTotal() {
-        return quantityTotal;
-    }
+//    public Long getQuantityTotal() {
+//        return quantityTotal;
+//    }
 
-    public void setQuantityTotal(long quantityTotal) {
-        this.quantityTotal = quantityTotal;
-    }
+//    public void setQuantityTotal(long quantityTotal) {
+//        this.quantityTotal = quantityTotal;
+//    }
 
     public User getUser() {
         return user;

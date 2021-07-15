@@ -17,7 +17,7 @@ public class BookingInputDto {
 
     public Long price;
 
-    public Long quantityTotal;
+//    public Long quantityTotal;
 
     public float amount;
 
@@ -26,7 +26,7 @@ public class BookingInputDto {
         booking.setStartTime(startTime);
         booking.setDate(date);
         booking.setPrice(price);
-        booking.setQuantityTotal(quantityTotal);
+      //  booking.setQuantityTotal(quantityTotal);
         booking.setAmount(amount);
         return booking;
     }
