@@ -89,11 +89,12 @@ public class BookingServiceImpl implements BookingService {
 
             var overlappingStartBookings = bookingRepository.findBookingByDate(booking.getDate());
             bike.setQuantityTotal((long) (bike.getQuantityTotal() - booking.getAmount()));
-            System.out.println(bike.getQuantityTotal());
-            if (bike.getQuantityTotal() < 1 ) {
+            System.out.println("voorraad fietsen over van bikeId " + bike.getId() + ": " + bike.getQuantityTotal());
+                        if (bike.getQuantityTotal() < 1 ) {
                 throw new BadRequestException();
             }
-
+            booking.setPrice((long) (booking.getAmount()*bike.getPricePerDay()));
+            System.out.println("de prijs van deze booking is: €" + booking.getPrice());
             booking.setUser(user);
             booking.setBike(bike);
             return bookingRepository.save(booking);

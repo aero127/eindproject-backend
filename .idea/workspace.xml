@@ -5,11 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="006f30c6-0312-4b99-a7fb-5187c14b423a" name="Default Changelist" comment="Update">
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_projectlombok_lombok_1_18_20.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/nl/gettoworktogether/security_with_jwt/controller/AuthenticationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nl/gettoworktogether/security_with_jwt/controller/AuthenticationController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/nl/gettoworktogether/security_with_jwt/model/AuthenticationRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nl/gettoworktogether/security_with_jwt/payload/AuthenticationRequest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/nl/gettoworktogether/security_with_jwt/model/AuthenticationResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nl/gettoworktogether/security_with_jwt/payload/AuthenticationResponse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/nl/mtbrental/eindproject/service/BookingServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nl/mtbrental/eindproject/service/BookingServiceImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -19,12 +18,32 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
+    <favorite-branches>
+      <branch-storage>
+        <map>
+          <entry type="LOCAL">
+            <value>
+              <list>
+                <branch-info repo="$PROJECT_DIR$" source="eindproject_incl_new_booking" />
+              </list>
+            </value>
+          </entry>
+        </map>
+      </branch-storage>
+    </favorite-branches>
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="booking_test" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="UPDATE_TYPE" value="REBASE" />
   </component>
   <component name="ProjectId" id="1iTBKwgtMYyn6yZT9uyaLKCPyzH" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -33,16 +52,33 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="RequestMappingsPanelOrder0" value="0" />
+    <property name="RequestMappingsPanelOrder1" value="1" />
+    <property name="RequestMappingsPanelWidth0" value="75" />
+    <property name="RequestMappingsPanelWidth1" value="75" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="nodejs_package_manager_path" value="npm" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.29655173" />
-    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
+    <property name="settings.editor.selected.configurable" value="reference.settings.project.maven.runner" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Arnold\IdeaProjects\springboot-15-security-with-jwt2" />
+      <recent name="$PROJECT_DIR$/src/main/java/nl/gettoworktogether/security_with_jwt" />
+      <recent name="$PROJECT_DIR$/src/main/java/nl/gettoworktogether/security_with_jwt/model" />
+      <recent name="$PROJECT_DIR$/src/main/java/nl/gettoworktogether/security_with_jwt/service" />
+      <recent name="$PROJECT_DIR$/src/main/java/nl/gettoworktogether/security_with_user_table/controller" />
+    </key>
+    <key name="ExtractSuperBase.RECENT_KEYS">
+      <recent name="nl.mtbrental.eindproject.service" />
+    </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="nl.gettoworktogether.security_with_jwt.controller" />
     </key>
@@ -53,15 +89,8 @@
       <recent name="nl.gettoworktogether.security_with_jwt.repository" />
       <recent name="nl.gettoworktogether.security_with_jwt.service" />
     </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src/main/java/nl/gettoworktogether/security_with_jwt" />
-      <recent name="$PROJECT_DIR$/src/main/java/nl/gettoworktogether/security_with_jwt/model" />
-      <recent name="$PROJECT_DIR$/src/main/java/nl/gettoworktogether/security_with_jwt/service" />
-      <recent name="$PROJECT_DIR$/src/main/java/nl/gettoworktogether/security_with_user_table/controller" />
-      <recent name="$PROJECT_DIR$/src/main/resources" />
-    </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Spring Boot.SecurityMain (1)">
     <configuration name="SecurityMain" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="ALTERNATIVE_JRE_PATH" value="adopt-openjdk-14" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
@@ -84,8 +113,40 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SecurityMain (1)" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+      <module name="security_with_jwt" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="nl.mtbrental.eindproject.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="SPRING_BOOT_MAIN_CLASS" value="nl.mtbrental.eindproject.SecurityMain" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SecurityMain" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="security_with_jwt" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="nl.gettoworktogether.security_with_jwt.SecurityMain" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Spring Boot.SecurityMain (1)" />
         <item itemvalue="Application.SecurityMain" />
       </list>
     </recent_temporary>
@@ -98,6 +159,19 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1601921675829</updated>
+      <workItem from="1624964909311" duration="2221000" />
+      <workItem from="1624974540424" duration="27258000" />
+      <workItem from="1625245633690" duration="2833000" />
+      <workItem from="1625249601923" duration="6000" />
+      <workItem from="1625250352468" duration="54978000" />
+      <workItem from="1625640841564" duration="54069000" />
+      <workItem from="1625852854660" duration="5504000" />
+      <workItem from="1625911498674" duration="4707000" />
+      <workItem from="1625995034800" duration="65921000" />
+      <workItem from="1626335353880" duration="3013000" />
+      <workItem from="1626353178865" duration="16509000" />
+      <workItem from="1626454041949" duration="8149000" />
+      <workItem from="1626466000587" duration="11212000" />
     </task>
     <task id="LOCAL-00001" summary="Update">
       <created>1611225328261</created>
@@ -113,8 +187,74 @@
       <option name="project" value="LOCAL" />
       <updated>1611225377582</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Booking en Bike add werkt">
+      <created>1625598351876</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1625598351876</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Update">
+      <created>1625772577710</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1625772577710</updated>
+    </task>
+    <task id="LOCAL-00005" summary="post op /booking werkt, maar geeft geen bikeId mee of username">
+      <created>1626080531809</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1626080531809</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Update met upload">
+      <created>1626156259612</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1626156259612</updated>
+    </task>
+    <task id="LOCAL-00007" summary="booking systeem werkt na aanpassingen">
+      <created>1626282509815</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1626282509815</updated>
+    </task>
+    <task id="LOCAL-00008" summary="zoeken op /?bikeId=4 en /?username=peter werkt nu ook.&#10;zoeken naar boekingen op datum geeft nog een NULL error">
+      <created>1626289982586</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1626289982586</updated>
+    </task>
+    <task id="LOCAL-00009" summary="loop in User met booking,&#10;aantal bikes wordt wel aangepast na booking">
+      <created>1626377870514</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1626377870514</updated>
+    </task>
+    <task id="LOCAL-00010" summary="test branch">
+      <created>1626518551519</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1626518551519</updated>
+    </task>
+    <task id="LOCAL-00011" summary="booking lijkt te werken zonder in een loop te geraken">
+      <created>1626543842499</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1626543842499</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
   </component>
   <component name="UnknownFeatures">
     <option featureType="com.intellij.fileTypeFactory" implementationName="*.sql" />
@@ -135,7 +275,15 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$/.." />
     </ignored-roots>
+    <MESSAGE value="Booking en Bike add werkt" />
     <MESSAGE value="Update" />
-    <option name="LAST_COMMIT_MESSAGE" value="Update" />
+    <MESSAGE value="post op /booking werkt, maar geeft geen bikeId mee of username" />
+    <MESSAGE value="Update met upload" />
+    <MESSAGE value="booking systeem werkt na aanpassingen" />
+    <MESSAGE value="zoeken op /?bikeId=4 en /?username=peter werkt nu ook.&#10;zoeken naar boekingen op datum geeft nog een NULL error" />
+    <MESSAGE value="loop in User met booking,&#10;aantal bikes wordt wel aangepast na booking" />
+    <MESSAGE value="test branch" />
+    <MESSAGE value="booking lijkt te werken zonder in een loop te geraken" />
+    <option name="LAST_COMMIT_MESSAGE" value="booking lijkt te werken zonder in een loop te geraken" />
   </component>
 </project>
