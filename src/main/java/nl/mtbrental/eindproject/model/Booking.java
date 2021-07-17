@@ -1,10 +1,11 @@
 package nl.mtbrental.eindproject.model;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.time.LocalDateTime;
 
 @Entity
-public class Booking {
+public class Booking implements Serializable {
 
     @Id
     @GeneratedValue

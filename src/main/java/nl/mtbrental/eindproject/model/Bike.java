@@ -1,6 +1,8 @@
 package nl.mtbrental.eindproject.model;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.util.List;
 
@@ -25,6 +27,7 @@ public class Bike {
 //    private Long amount;
 
 
+    @JsonIgnore
     @OneToMany(mappedBy = "bike")
     List<Booking> bookings;
 

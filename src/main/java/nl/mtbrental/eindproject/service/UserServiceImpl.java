@@ -10,8 +10,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import javax.transaction.Transactional;
-import java.util.Collection;
 import java.util.List;
 import java.util.Optional;
 import java.util.Set;
@@ -38,10 +36,10 @@ public class UserServiceImpl implements UserService {
         return userRepository.findAll();
     }
 
-    @Override
-    public User getUserr(String username) {
-        return userRepository.findByUsername(username);
-    }
+
+//    public User getUserById(Long id) {
+//        return userRepository.findById(id);
+//    }
 
     @Override
     public Optional<User> getUser(String username) {

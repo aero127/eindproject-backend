@@ -27,6 +27,7 @@ public class BookingController {
         this.bookingService = bookingService;
     }
 
+
     @GetMapping
     public List<BookingDto> getBookings(@RequestParam(value = "username", required = false) String username,
                                         @RequestParam(value = "date", required = false) @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) LocalDateTime date,

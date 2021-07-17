@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.springframework.web.bind.annotation.CrossOrigin;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -11,7 +12,7 @@ import java.util.Set;
 @Entity
 @Table(name = "users")
 @CrossOrigin
-public class User {
+public class User implements Serializable {
 
     @Id
     @Column(nullable = false, unique = true)
@@ -42,7 +43,6 @@ public class User {
     @OneToMany(mappedBy = "user")
     List<Booking> bookings;
 
-    @JsonIgnore
     @OneToMany(
             targetEntity = Authority.class,
             mappedBy = "username",

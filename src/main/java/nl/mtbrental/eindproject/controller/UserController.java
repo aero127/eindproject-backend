@@ -4,12 +4,15 @@ import nl.mtbrental.eindproject.exceptions.BadRequestException;
 import nl.mtbrental.eindproject.model.User;
 import nl.mtbrental.eindproject.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Repository;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import java.net.URI;
 import java.util.Map;
+
 
 @RestController
 @CrossOrigin
@@ -23,6 +26,13 @@ public class UserController {
     public UserController(UserService userService) {
         this.userService = userService;
     }
+
+
+
+//    @GetMapping(value = "/{id}")
+//    public ResponseEntity<Object> getUsersById(@PathVariable("id") Long id) {
+//        return ResponseEntity.ok().body(userService.getUserById(id));
+//    }
 
     @GetMapping(value = "")
     public ResponseEntity<Object> getUsers() {

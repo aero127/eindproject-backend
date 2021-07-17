@@ -60,7 +60,6 @@ public class BookingServiceImpl implements BookingService {
 
 
 
-
     @Override
     public List<Booking> getBookingsByUsername(String username) {
         var optionalUser = userRepository.findById(username);
