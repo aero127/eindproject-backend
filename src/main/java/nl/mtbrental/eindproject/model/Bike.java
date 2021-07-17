@@ -21,8 +21,8 @@ public class Bike {
     @Column
     private Long pricePerDay;
 
-    @Column
-    private Long amount;
+//    @Column
+//    private Long amount;
 
 
     @OneToMany(mappedBy = "bike")
@@ -68,11 +68,11 @@ public class Bike {
         this.quantityTotal = quantityTotal;
     }
 
-    public long getAmount() {
-        return amount;
-    }
-
-    public void setAmount(Long amount) {
-        this.amount = amount;
-    }
+//    public long getAmount() {
+//        return amount;
+//    }
+//
+//    public void setAmount(Long amount) {
+//        this.amount = amount;
+//    }
 }

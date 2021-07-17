@@ -1,5 +1,6 @@
 package nl.mtbrental.eindproject.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.springframework.web.bind.annotation.CrossOrigin;
 
 import javax.persistence.*;
@@ -37,10 +38,11 @@ public class User {
     @Lob
     byte[] identification;
 
-
+    @JsonIgnore
     @OneToMany(mappedBy = "user")
     List<Booking> bookings;
 
+    @JsonIgnore
     @OneToMany(
             targetEntity = Authority.class,
             mappedBy = "username",

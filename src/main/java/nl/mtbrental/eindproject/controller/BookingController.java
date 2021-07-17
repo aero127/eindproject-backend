@@ -38,7 +38,7 @@ public class BookingController {
             bookings = bookingService.getBookingsByUsername(username);
 
         } else if (date != null && username == null && bikeId == null) {
-            bookings = bookingService.getBookingsOnDate(date, username, bikeId);
+            bookings = bookingService.getBookingsOnDate(date);
 
         } else if (date == null && username == null && bikeId != null) {
             bookings = bookingService.getBookingsForBike(bikeId);
@@ -58,6 +58,11 @@ public class BookingController {
     public BookingDto saveBooking(@RequestBody BookingInputDto dto) {
         var booking = bookingService.saveBooking(dto.toBooking(), dto.bikeId, dto.username);
         return BookingDto.fromBooking(booking);
+    }
+
+    @GetMapping(value = "/all")
+    public ResponseEntity<Object> getBookings() {
+        return ResponseEntity.ok().body(bookingService.getBookings());
     }
 
 }

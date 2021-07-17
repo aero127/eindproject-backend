@@ -53,19 +53,10 @@ public class BookingServiceImpl implements BookingService {
 
 
 
-    public List<Booking> getBookingsOnDate(LocalDateTime date, String username, Long bikeId) {
-        var optionalUser = userRepository.findById(username);
-        var optionalBike = bikeRepository.findById(bikeId);
-
-        if (optionalUser.isPresent() || optionalBike.isPresent()) {
-            var user = optionalUser.get();
-            var bike = optionalBike.get();
-
+    public List<Booking> getBookingsOnDate(LocalDateTime date) {
             return bookingRepository.findBookingByDate(date);
-        } else {
-            throw new NotFoundException();
         }
-    }
+
 
 
 
