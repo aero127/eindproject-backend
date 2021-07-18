@@ -21,6 +21,10 @@ public class BookingInputDto {
 
     public float amount;
 
+    public boolean helmet;
+
+    public boolean spdPedals;
+
     public Booking toBooking() {
         var booking = new Booking();
         booking.setStartTime(startTime);
@@ -28,6 +32,8 @@ public class BookingInputDto {
         booking.setPrice(price);
       //  booking.setQuantityTotal(quantityTotal);
         booking.setAmount(amount);
+        booking.setHelmet(helmet);
+        booking.setSpdPedals(spdPedals);
         return booking;
     }
 }

@@ -30,6 +30,7 @@ public class BookingDto {
 
 
 
+
     public static BookingDto fromBooking(Booking booking) {
         var dto = new BookingDto();
         dto.id = booking.getId();
@@ -38,6 +39,7 @@ public class BookingDto {
         dto.startTime = booking.getStartTime();
         dto.date = booking.getDate();
         dto.price = booking.getPrice();
+
         return dto;
     }
 

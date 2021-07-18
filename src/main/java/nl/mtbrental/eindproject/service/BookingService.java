@@ -10,7 +10,7 @@ import java.util.List;
 public interface BookingService {
 
     List<Booking> getBookings();
-    Booking getBookings(long id);
+    Booking getBookings(Long id);
 //    Booking addBooking(Booking booking);
 //    void removeBooking(long id);
 //    void updateBooking(long id);

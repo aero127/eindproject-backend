@@ -33,7 +33,7 @@ public class BookingServiceImpl implements BookingService {
         return bookingRepository.findAll();
     }
 
-    public Booking getBookings(long id) {
+    public Booking getBookings(Long id) {
         return bookingRepository.getById(id);
     }
 
@@ -93,8 +93,15 @@ public class BookingServiceImpl implements BookingService {
                         if (bike.getQuantityTotal() < 1 ) {
                 throw new BadRequestException();
             }
-            booking.setPrice((long) (booking.getAmount()*bike.getPricePerDay()));
+            if (booking.isHelmet()) {
+                     System.out.println("if");
+                     booking.setPrice((long) (booking.getAmount()*bike.getPricePerDay() + (booking.getAmount()*4)));
+            } else {
+                     System.out.println("else");
+                     booking.setPrice((long) (booking.getAmount() * bike.getPricePerDay()));
+                 }
             System.out.println("de prijs van deze booking is: €" + booking.getPrice());
+//            System.out.println(booking.isHelmet());
             booking.setUser(user);
             booking.setBike(bike);
             return bookingRepository.save(booking);

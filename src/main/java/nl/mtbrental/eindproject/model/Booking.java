@@ -27,6 +27,9 @@ public class Booking implements Serializable {
 
     private String startTime;
 
+    private boolean helmet;
+
+    private boolean spdPedals;
 
     public Long getId() {
         return id;
@@ -92,5 +95,20 @@ public class Booking implements Serializable {
         this.bike = bike;
     }
 
+    public boolean isHelmet() {
+        return helmet;
+    }
+
+    public void setHelmet(boolean helmet) {
+        this.helmet = helmet;
+    }
+
+    public boolean isSpdPedals() {
+        return spdPedals;
+    }
+
+    public void setSpdPedals(boolean spdPedals) {
+        this.spdPedals = spdPedals;
+    }
 }
 

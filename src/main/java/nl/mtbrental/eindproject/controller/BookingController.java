@@ -5,6 +5,7 @@ import nl.mtbrental.eindproject.dto.BikeInputDto;
 import nl.mtbrental.eindproject.dto.BookingDto;
 import nl.mtbrental.eindproject.dto.BookingInputDto;
 import nl.mtbrental.eindproject.exceptions.BadRequestException;
+import nl.mtbrental.eindproject.model.Bike;
 import nl.mtbrental.eindproject.model.Booking;
 import nl.mtbrental.eindproject.service.BookingService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -64,6 +65,13 @@ public class BookingController {
     @GetMapping(value = "/all")
     public ResponseEntity<Object> getBookings() {
         return ResponseEntity.ok().body(bookingService.getBookings());
+    }
+
+
+    @GetMapping(value = "/{id}")
+    public ResponseEntity<Object> getBooking(@PathVariable("id") Long id) {
+        Booking booking = (Booking) bookingService.getBookings(id);
+        return ResponseEntity.ok(booking);
     }
 
 }
