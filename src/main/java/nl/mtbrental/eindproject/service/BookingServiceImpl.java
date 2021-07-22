@@ -95,10 +95,10 @@ public class BookingServiceImpl implements BookingService {
             }
             if (booking.isHelmet()) {
                      System.out.println("if");
-                     booking.setPrice((long) (booking.getAmount()*bike.getPricePerDay() + (booking.getAmount()*4)));
+                     booking.setPrice((Long) (booking.getAmount()*bike.getPricePerDay() + (booking.getAmount()*4)));
             } else {
                      System.out.println("else");
-                     booking.setPrice((long) (booking.getAmount() * bike.getPricePerDay()));
+                     booking.setPrice((Long) (booking.getAmount() * bike.getPricePerDay()));
                  }
             System.out.println("de prijs van deze booking is: €" + booking.getPrice());
 //            System.out.println(booking.isHelmet());

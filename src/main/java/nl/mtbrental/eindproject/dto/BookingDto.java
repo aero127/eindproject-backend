@@ -28,6 +28,8 @@ public class BookingDto {
     @JsonSerialize
     Long price;
 
+    @JsonSerialize
+    int amount;
 
 
 
@@ -39,6 +41,7 @@ public class BookingDto {
         dto.startTime = booking.getStartTime();
         dto.date = booking.getDate();
         dto.price = booking.getPrice();
+        dto.amount = booking.getAmount();
 
         return dto;
     }

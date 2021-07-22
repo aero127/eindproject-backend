@@ -4,10 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="006f30c6-0312-4b99-a7fb-5187c14b423a" name="Default Changelist" comment="Update">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_projectlombok_lombok_1_18_20.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+    <list default="true" id="006f30c6-0312-4b99-a7fb-5187c14b423a" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/nl/mtbrental.rar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/nl/mtbrental/eindproject/dto/BookingDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nl/mtbrental/eindproject/dto/BookingDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/nl/mtbrental/eindproject/dto/BookingInputDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nl/mtbrental/eindproject/dto/BookingInputDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/nl/mtbrental/eindproject/model/Booking.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nl/mtbrental/eindproject/model/Booking.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/nl/mtbrental/eindproject/service/BookingServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nl/mtbrental/eindproject/service/BookingServiceImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -66,7 +68,7 @@
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.29655173" />
-    <property name="settings.editor.selected.configurable" value="reference.settings.project.maven.runner" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -171,7 +173,8 @@
       <workItem from="1626335353880" duration="3013000" />
       <workItem from="1626353178865" duration="16509000" />
       <workItem from="1626454041949" duration="8149000" />
-      <workItem from="1626466000587" duration="11212000" />
+      <workItem from="1626466000587" duration="31081000" />
+      <workItem from="1626898091106" duration="1086000" />
     </task>
     <task id="LOCAL-00001" summary="Update">
       <created>1611225328261</created>
@@ -250,7 +253,21 @@
       <option name="project" value="LOCAL" />
       <updated>1626543842499</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="aanpassing gedaan om de voorraad bij te houden en deze te tonen in de console + prijs van de boeking">
+      <created>1626549811612</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1626549811612</updated>
+    </task>
+    <task id="LOCAL-00013" summary="prijs wordt aangepast als helmet true is.&#10;daarnaast spdPedals toegevoegd aan de booking.&#10;ook is het nu mogelijk om 1 booking op te vragen dmv id&#10;booking/{id}">
+      <created>1626634254793</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1626634254793</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -284,6 +301,8 @@
     <MESSAGE value="loop in User met booking,&#10;aantal bikes wordt wel aangepast na booking" />
     <MESSAGE value="test branch" />
     <MESSAGE value="booking lijkt te werken zonder in een loop te geraken" />
-    <option name="LAST_COMMIT_MESSAGE" value="booking lijkt te werken zonder in een loop te geraken" />
+    <MESSAGE value="aanpassing gedaan om de voorraad bij te houden en deze te tonen in de console + prijs van de boeking" />
+    <MESSAGE value="prijs wordt aangepast als helmet true is.&#10;daarnaast spdPedals toegevoegd aan de booking.&#10;ook is het nu mogelijk om 1 booking op te vragen dmv id&#10;booking/{id}" />
+    <option name="LAST_COMMIT_MESSAGE" value="prijs wordt aangepast als helmet true is.&#10;daarnaast spdPedals toegevoegd aan de booking.&#10;ook is het nu mogelijk om 1 booking op te vragen dmv id&#10;booking/{id}" />
   </component>
 </project>

@@ -19,7 +19,7 @@ public class BookingInputDto {
 
 //    public Long quantityTotal;
 
-    public float amount;
+    public int amount;
 
     public boolean helmet;
 
