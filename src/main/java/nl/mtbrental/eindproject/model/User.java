@@ -39,6 +39,9 @@ public class User implements Serializable {
     @Lob
     byte[] identification;
 
+    @OneToOne
+    Upload upload;
+
     @JsonIgnore
     @OneToMany(mappedBy = "user")
     List<Booking> bookings;
@@ -106,5 +109,13 @@ public class User implements Serializable {
 
     public void setBookings(List<Booking> bookings) {
         this.bookings = bookings;
+    }
+
+    public Upload getUpload() {
+        return upload;
+    }
+
+    public void setUpload(Upload upload) {
+        this.upload = upload;
     }
 }

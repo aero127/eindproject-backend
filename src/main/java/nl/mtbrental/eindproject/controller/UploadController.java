@@ -54,9 +54,9 @@ public class UploadController {
         URI location = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}")
                 .buildAndExpand(newId).toUri();
 
-        //return ResponseEntity.noContent().build();
-        return ResponseEntity.ok("het uploaden is gelukt!");
-      //  return ResponseEntity.created(location).body(location);
+        return ResponseEntity.noContent().build();
+      //  return ResponseEntity.ok("het uploaden is gelukt!");
+       //  return ResponseEntity.created(location).body(location);
     }
 
     @DeleteMapping("/files/{id}")

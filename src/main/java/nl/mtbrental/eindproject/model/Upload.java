@@ -14,6 +14,9 @@ public class Upload {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
+    @OneToOne
+    User user;
+
     @Column(name = "file_name")
     private String fileName;
 

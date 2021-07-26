@@ -5,11 +5,14 @@ import nl.mtbrental.eindproject.model.User;
 import nl.mtbrental.eindproject.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Repository;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
+import java.io.IOException;
 import java.net.URI;
 import java.util.Map;
 
@@ -87,6 +90,22 @@ public class UserController {
     public ResponseEntity<Object> deleteUserAuthority(@PathVariable("username") String username, @PathVariable("authority") String authority) {
         userService.removeAuthority(username, authority);
         return ResponseEntity.noContent().build();
+    }
+
+    @PostMapping("/{username}/license")
+    public void uploadLicense(@PathVariable("username") String username, @RequestParam("file") MultipartFile file) throws IOException {
+        if (file.getContentType() == null || !file.getContentType().equals("application/pdf")) {
+            throw new BadRequestException();
+        }
+        userService.uploadIdentification(username, file);
+    }
+
+    @GetMapping("/{username}/license")
+    public ResponseEntity<byte[]> getLicense(@PathVariable("username") String username) {
+        var licenseBytes = userService.getIdentification(username);
+
+        return ResponseEntity.ok().header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=\"identification.pdf\"")
+                .body(licenseBytes);
     }
 
 }

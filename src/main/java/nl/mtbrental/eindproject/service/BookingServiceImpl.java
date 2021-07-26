@@ -54,7 +54,7 @@ public class BookingServiceImpl implements BookingService {
 
 
     public List<Booking> getBookingsOnDate(LocalDateTime date) {
-            return bookingRepository.findBookingByDate(date);
+            return bookingRepository.findBookingsByDate(date);
         }
 
 
@@ -82,17 +82,18 @@ public class BookingServiceImpl implements BookingService {
     public Booking saveBooking(Booking booking, Long bikeId, String username) {
         var optionalUser = userRepository.findById(username);
         var optionalBike = bikeRepository.findById(bikeId);
+//        var optionalBookings = bookingRepository.findBookingsByDate(date);
 
         if (optionalUser.isPresent() && optionalBike.isPresent()) {
             var user = optionalUser.get();
             var bike = optionalBike.get();
 
-            var overlappingStartBookings = bookingRepository.findBookingByDate(booking.getDate());
-            bike.setQuantityTotal((long) (bike.getQuantityTotal() - booking.getAmount()));
-            System.out.println("voorraad fietsen over van bikeId " + bike.getId() + ": " + bike.getQuantityTotal());
-                        if (bike.getQuantityTotal() < 1 ) {
-                throw new BadRequestException();
-            }
+
+//            bike.setQuantityTotal((int) (bike.getQuantityTotal() - booking.getAmount()));
+//            System.out.println("voorraad fietsen over van bikeId " + bike.getId() + ": " + bike.getQuantityTotal());
+//                        if (bike.getQuantityTotal() == -1 ) {
+//                throw new BadRequestException();
+//            }
             if (booking.isHelmet()) {
                      System.out.println("if");
                      booking.setPrice((Long) (booking.getAmount()*bike.getPricePerDay() + (booking.getAmount()*4)));
@@ -102,6 +103,8 @@ public class BookingServiceImpl implements BookingService {
                  }
             System.out.println("de prijs van deze booking is: €" + booking.getPrice());
 //            System.out.println(booking.isHelmet());
+
+
             booking.setUser(user);
             booking.setBike(bike);
             return bookingRepository.save(booking);
@@ -122,6 +125,7 @@ public class BookingServiceImpl implements BookingService {
             throw new NotFoundException();
         }
     }
+
 
 
     public List<Booking> getBookingsForUser(String username) {

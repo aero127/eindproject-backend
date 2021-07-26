@@ -5,7 +5,7 @@ import nl.mtbrental.eindproject.model.Bike;
 public class BikeDto {
     public Long id;
     public String bikeName;
-    public Long quantityTotal;
+    public int quantityTotal;
     public Long pricePerDay;
 
     public static BikeDto fromBike(Bike bike) {

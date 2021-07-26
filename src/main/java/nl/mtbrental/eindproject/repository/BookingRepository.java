@@ -11,11 +11,12 @@ import java.util.List;
 public interface BookingRepository extends JpaRepository<Booking, Long> {
         Booking getById(Long id);
 
-        List<Booking> findBookingByDate(LocalDateTime date);
+        List<Booking> findBookingsByDate(LocalDateTime date);
 
         List<Booking> findBookingByUser(User user);
 
         List<Booking> findByBike(Bike bike);
 
         List<Booking> findByUser(User user);
+
         }

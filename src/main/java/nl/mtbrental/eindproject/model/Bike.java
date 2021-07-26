@@ -18,7 +18,7 @@ public class Bike {
     private Long id;
 
     @Column
-    private Long quantityTotal;
+    private int quantityTotal;
 
     @Column
     private Long pricePerDay;
@@ -63,15 +63,15 @@ public class Bike {
         this.pricePerDay = pricePerDay;
     }
 
-    public long getQuantityTotal() {
+    public int getQuantityTotal() {
         return quantityTotal;
     }
 
-    public void setQuantityTotal(Long quantityTotal) {
+    public void setQuantityTotal(int quantityTotal) {
         this.quantityTotal = quantityTotal;
     }
 
-//    public long getAmount() {
+    //    public long getAmount() {
 //        return amount;
 //    }
 //

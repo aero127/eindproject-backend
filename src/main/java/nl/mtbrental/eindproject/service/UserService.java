@@ -2,7 +2,9 @@ package nl.mtbrental.eindproject.service;
 
 import nl.mtbrental.eindproject.model.Authority;
 import nl.mtbrental.eindproject.model.User;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.IOException;
 import java.util.List;
 import java.util.Optional;
 import java.util.Set;
@@ -20,4 +22,7 @@ public interface UserService {
     void addAuthority(String username, String authority);
     void removeAuthority(String username, String authority);
 
+    void uploadIdentification(String username, MultipartFile file) throws IOException;
+
+    byte[] getIdentification(String username);
 }
