@@ -4,6 +4,7 @@ package nl.mtbrental.eindproject.controller;
 import nl.mtbrental.eindproject.dto.BikeDto;
 import nl.mtbrental.eindproject.dto.BikeInputDto;
 import nl.mtbrental.eindproject.model.Bike;
+import nl.mtbrental.eindproject.model.User;
 import nl.mtbrental.eindproject.service.BikeService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -24,7 +25,7 @@ public class BikeController {
 
 
     @GetMapping("")
-    public ResponseEntity<Object> getBike() {return ResponseEntity.ok(bikeService.getBike());}
+    public ResponseEntity<Object> getBikes() {return ResponseEntity.ok(bikeService.getBikes());}
 
 //    @PostMapping("")
 //    public ResponseEntity<Object> addBike(@RequestBody Bike bike) {
@@ -40,15 +41,22 @@ public class BikeController {
 
 
     @GetMapping("/{id}")
-    public ResponseEntity<Object> getBikes(@PathVariable("id") long id) {
-        Bike bike = (Bike) bikeService.getBikes(id);
-        return ResponseEntity.ok(bike);
+    public ResponseEntity<Object> getBike(@PathVariable("id") Long id) {
+        return ResponseEntity.ok(bikeService.getBike(id));
     }
 
-    @PutMapping("/{id}")
+    @DeleteMapping("/{id}")
     public ResponseEntity<Object> removeBike(@PathVariable("id") long id) {
         bikeService.removeBike(id);
         return ResponseEntity.noContent().build();
     }
 
+    @PutMapping(value = "/{id}")
+    public BikeDto updateBike(@PathVariable("id") @RequestBody BikeInputDto dto) {
+        var bike = bikeService.addBike(dto.toBike());
+        return BikeDto.fromBike(bike);
+    }
 }
+
+
+

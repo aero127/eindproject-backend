@@ -43,7 +43,7 @@ public class BookingServiceImpl implements BookingService {
         return bookingRepository.save(booking);
     }
 
-    public void removeBooking(long id) {
+    public void removeBooking(Long id) {
     bookingRepository.deleteById(id);
     }
 
@@ -128,14 +128,14 @@ public class BookingServiceImpl implements BookingService {
 
 
 
-    public List<Booking> getBookingsForUser(String username) {
-        var optionalUser = userRepository.findById(username);
-
-        if (optionalUser.isPresent()) {
-            var user = optionalUser.get();
-            return bookingRepository.findBookingByUser(user);
-        } else {
-            throw new NotFoundException();
-        }
-    }
+//    public List<Booking> getBookingsForUser(String username) {
+//        var optionalUser = userRepository.findById(username);
+//
+//        if (optionalUser.isPresent()) {
+//            var user = optionalUser.get();
+//            return bookingRepository.findBookingByUser(user);
+//        } else {
+//            throw new NotFoundException();
+//        }
+//    }
 }

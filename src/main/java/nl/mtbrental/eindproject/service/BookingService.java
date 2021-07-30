@@ -12,7 +12,7 @@ public interface BookingService {
     List<Booking> getBookings();
     Booking getBookings(Long id);
 //    Booking addBooking(Booking booking);
-//    void removeBooking(long id);
+    void removeBooking(Long id);
 //    void updateBooking(long id);
 
 //    List<Booking> getBookingsForBike(Long bikeId);

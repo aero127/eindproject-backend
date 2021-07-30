@@ -46,6 +46,9 @@ public class BookingController {
         } else if (date == null && username == null && bikeId != null) {
             bookings = bookingService.getBookingsForBike(bikeId);
 
+        } else if (date == null && username == null && bikeId == null) {
+            bookings = bookingService.getBookings();
+
         } else {
             throw new BadRequestException();
         }
@@ -63,16 +66,16 @@ public class BookingController {
         return BookingDto.fromBooking(booking);
     }
 
-    @GetMapping(value = "/all")
-    public ResponseEntity<Object> getBookings() {
-        return ResponseEntity.ok().body(bookingService.getBookings());
-    }
 
+    @DeleteMapping(value = "/{id}")
+    public ResponseEntity<Object> removeBooking(@PathVariable("id") Long id) {
+        bookingService.removeBooking(id);
+        return ResponseEntity.noContent().build();
+    }
 
     @GetMapping(value = "/{id}")
-    public ResponseEntity<Object> getBooking(@PathVariable("id") Long id) {
-        Booking booking = (Booking) bookingService.getBookings(id);
-        return ResponseEntity.ok(booking);
+    public BookingDto getBooking(@PathVariable("id") Long id) {
+        var booking =  bookingService.getBookings(id);
+        return BookingDto.fromBooking(booking);
     }
-
 }

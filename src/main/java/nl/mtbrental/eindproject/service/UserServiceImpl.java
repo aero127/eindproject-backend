@@ -19,10 +19,6 @@ import java.util.Set;
 
 @Service
 public class UserServiceImpl implements UserService {
-    private UserRepository repository;
-
-    @Autowired
-    public UserServiceImpl(UserRepository repository) { this.repository = repository; }
 
     @Autowired
     private PasswordEncoder passwordEncoder;

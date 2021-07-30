@@ -39,7 +39,7 @@ public class Bike {
         this.bikeName = bikeName;
     }
 
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
@@ -71,7 +71,8 @@ public class Bike {
         this.quantityTotal = quantityTotal;
     }
 
-    //    public long getAmount() {
+
+//    public long getAmount() {
 //        return amount;
 //    }
 //
