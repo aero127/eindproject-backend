@@ -1,11 +1,8 @@
 package nl.mtbrental.eindproject.controller;
 
-import nl.mtbrental.eindproject.dto.BikeDto;
-import nl.mtbrental.eindproject.dto.BikeInputDto;
 import nl.mtbrental.eindproject.dto.BookingDto;
 import nl.mtbrental.eindproject.dto.BookingInputDto;
 import nl.mtbrental.eindproject.exceptions.BadRequestException;
-import nl.mtbrental.eindproject.model.Bike;
 import nl.mtbrental.eindproject.model.Booking;
 import nl.mtbrental.eindproject.service.BookingService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -75,7 +72,7 @@ public class BookingController {
 
     @GetMapping(value = "/{id}")
     public BookingDto getBooking(@PathVariable("id") Long id) {
-        var booking =  bookingService.getBookings(id);
+        var booking =  bookingService.getBooking(id);
         return BookingDto.fromBooking(booking);
     }
 }

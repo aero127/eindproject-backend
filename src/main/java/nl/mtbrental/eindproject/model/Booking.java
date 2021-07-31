@@ -13,8 +13,6 @@ public class Booking implements Serializable {
 
     private Long price;
 
-//    private Long quantityTotal;
-
     private LocalDateTime date;
 
     private int amount;
@@ -47,13 +45,6 @@ public class Booking implements Serializable {
         this.price = price;
     }
 
-//    public Long getQuantityTotal() {
-//        return quantityTotal;
-//    }
-
-//    public void setQuantityTotal(long quantityTotal) {
-//        this.quantityTotal = quantityTotal;
-//    }
 
     public User getUser() {
         return user;

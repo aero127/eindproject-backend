@@ -23,9 +23,6 @@ public class Bike {
     @Column
     private Long pricePerDay;
 
-//    @Column
-//    private Long amount;
-
 
     @JsonIgnore
     @OneToMany(mappedBy = "bike")
@@ -72,11 +69,4 @@ public class Bike {
     }
 
 
-//    public long getAmount() {
-//        return amount;
-//    }
-//
-//    public void setAmount(Long amount) {
-//        this.amount = amount;
-//    }
 }

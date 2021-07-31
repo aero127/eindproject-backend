@@ -1,8 +1,8 @@
 package nl.mtbrental.eindproject.service;
 
-import nl.mtbrental.eindproject.model.Bike;
+
 import nl.mtbrental.eindproject.model.Booking;
-import nl.mtbrental.eindproject.model.User;
+
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -10,12 +10,9 @@ import java.util.List;
 public interface BookingService {
 
     List<Booking> getBookings();
-    Booking getBookings(Long id);
-//    Booking addBooking(Booking booking);
-    void removeBooking(Long id);
-//    void updateBooking(long id);
+    Booking getBooking(Long id);
 
-//    List<Booking> getBookingsForBike(Long bikeId);
+    void removeBooking(Long id);
 
     List<Booking> getBookingsOnDate(LocalDateTime date);
 
@@ -25,6 +22,4 @@ public interface BookingService {
 
     List<Booking> getBookingsForBike(Long bikeId);
 
-
-//    List<Booking> getBookingsForUser(String username);
 }

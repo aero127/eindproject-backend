@@ -52,8 +52,6 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public String createUser(User user) {
-        String randomString = RandomStringGenerator.generateAlphaNumeric(20);
-        user.setApikey(randomString);
         user.setPassword(passwordEncoder.encode(user.getPassword()));
         User newUser = userRepository.save(user);
         return newUser.getUsername();

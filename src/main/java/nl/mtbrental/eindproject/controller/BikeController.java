@@ -27,11 +27,6 @@ public class BikeController {
     @GetMapping("")
     public ResponseEntity<Object> getBikes() {return ResponseEntity.ok(bikeService.getBikes());}
 
-//    @PostMapping("")
-//    public ResponseEntity<Object> addBike(@RequestBody Bike bike) {
-//        bikeService.addBike(bike);
-//        return ResponseEntity.ok("added");
-//    }
 
     @PostMapping
     public BikeDto saveBike(@RequestBody BikeInputDto dto) {

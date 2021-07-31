@@ -3,7 +3,6 @@ package nl.mtbrental.eindproject.service;
 
 import nl.mtbrental.eindproject.exceptions.RecordNotFoundException;
 import nl.mtbrental.eindproject.model.Bike;
-import nl.mtbrental.eindproject.model.User;
 import nl.mtbrental.eindproject.repository.BikeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

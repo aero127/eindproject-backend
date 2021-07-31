@@ -25,9 +25,6 @@ public class User implements Serializable {
     private boolean enabled = true;
 
     @Column
-    private String apikey;
-
-    @Column
     private String email;
 
     @Column
@@ -39,8 +36,6 @@ public class User implements Serializable {
     @Lob
     byte[] identification;
 
-    @OneToOne
-    Upload upload;
 
     @JsonIgnore
     @OneToMany(mappedBy = "user")
@@ -66,8 +61,6 @@ public class User implements Serializable {
     }
     public boolean isEnabled() { return enabled;}
     public void setEnabled(boolean enabled) { this.enabled = enabled; }
-    public String getApikey() { return apikey; }
-    public void setApikey(String apikey) { this.apikey = apikey; }
     public String getEmail() { return email; }
     public void setEmail(String email) { this.email = email;}
 
@@ -111,11 +104,4 @@ public class User implements Serializable {
         this.bookings = bookings;
     }
 
-    public Upload getUpload() {
-        return upload;
-    }
-
-    public void setUpload(Upload upload) {
-        this.upload = upload;
-    }
 }
