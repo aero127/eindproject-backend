@@ -8,6 +8,7 @@ import nl.mtbrental.eindproject.service.BookingService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import javax.transaction.Transactional;
@@ -58,6 +59,7 @@ public class BookingController {
     }
 
     @PostMapping
+    @PreAuthorize("hasAnyRole('ADMIN', 'USER')")
     public BookingDto saveBooking(@RequestBody BookingInputDto dto) {
         var booking = bookingService.saveBooking(dto.toBooking(), dto.bikeId, dto.username);
         return BookingDto.fromBooking(booking);
@@ -65,12 +67,14 @@ public class BookingController {
 
 
     @DeleteMapping(value = "/{id}")
+    @PreAuthorize("hasAuthority('ADMIN')")
     public ResponseEntity<Object> removeBooking(@PathVariable("id") Long id) {
         bookingService.removeBooking(id);
         return ResponseEntity.noContent().build();
     }
 
     @GetMapping(value = "/{id}")
+    @PreAuthorize("hasAuthority('ADMIN')")
     public BookingDto getBooking(@PathVariable("id") Long id) {
         var booking =  bookingService.getBooking(id);
         return BookingDto.fromBooking(booking);

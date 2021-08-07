@@ -6,6 +6,7 @@ import nl.mtbrental.eindproject.service.CustomUserDetailsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -56,14 +57,28 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
         http
             .csrf().disable()
             .authorizeRequests()
-//                .antMatchers("/customers/**").hasRole("USER")
-//                .antMatchers("/admin/**").hasRole("ADMIN")
-//                .antMatchers("/users/register").permitAll()
-//                .antMatchers("/users/**").hasRole("ADMIN")
-//                .antMatchers("/authenticated").authenticated()
-//                .antMatchers("/authenticate").permitAll()
-//                .antMatchers("/api/users/upload").permitAll()
-                .anyRequest().permitAll()
+                .antMatchers("/users/register").permitAll()
+                .antMatchers("/authenticate").permitAll()
+                .antMatchers("/authenticated").authenticated()
+//                .anyRequest().permitAll()
+                .antMatchers(HttpMethod.GET,"/users/").hasRole("ADMIN")
+                .antMatchers(HttpMethod.GET,"/users/{username}").authenticated()
+                .antMatchers(HttpMethod.POST,"/users/{username}").authenticated()
+                .antMatchers(HttpMethod.PUT,"/users/{username}").authenticated()
+                .antMatchers(HttpMethod.DELETE,"/users/{username}").hasRole("ADMIN")
+                .antMatchers(HttpMethod.PUT,"/users/{username}/password").authenticated()
+                .antMatchers(HttpMethod.GET,"/users/{username}/authorities").hasRole("ADMIN")
+                .antMatchers(HttpMethod.POST,"/users/{username}/authorities").hasRole("ADMIN")
+                .antMatchers(HttpMethod.DELETE,"/users/{username}/authorities/{authority}").hasRole("ADMIN")
+//                .antMatchers(HttpMethod.GET,"/bookings/?username={username}").authenticated()
+                .antMatchers(HttpMethod.GET,"/bookings/").authenticated()
+                .antMatchers(HttpMethod.POST,"/bookings/").authenticated()
+                .antMatchers(HttpMethod.GET,"/bookings/{id}").authenticated()
+                .antMatchers(HttpMethod.DELETE,"/bookings/{id}").hasRole("ADMIN")
+                .antMatchers("/bikes").hasRole("ADMIN")
+                .antMatchers("/bikes/{id}").hasRole("ADMIN")
+//                .antMatchers(HttpMethod.GET,"/bookings/?date=").hasRole("ADMIN")
+                .antMatchers(HttpMethod.GET,"/bookings/?bikeId=").hasRole("ADMIN")
                 .and()
                 .cors().and()
 //                .cors(withDefaults())

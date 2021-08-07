@@ -63,7 +63,7 @@ public class BookingServiceImpl implements BookingService {
     public Booking saveBooking(Booking booking, Long bikeId, String username) {
         var optionalUser = userRepository.findById(username);
         var optionalBike = bikeRepository.findById(bikeId);
-//        var optionalBookings = bookingRepository.findBookingsByDate(date);
+
 
         if (optionalUser.isPresent() && optionalBike.isPresent()) {
             var user = optionalUser.get();
@@ -74,8 +74,6 @@ public class BookingServiceImpl implements BookingService {
             } else {
                      booking.setPrice((Long) (booking.getAmount() * bike.getPricePerDay()));
                  }
-
-
 
             booking.setUser(user);
             booking.setBike(bike);

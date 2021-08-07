@@ -7,6 +7,7 @@ import nl.mtbrental.eindproject.model.Bike;
 import nl.mtbrental.eindproject.model.User;
 import nl.mtbrental.eindproject.service.BikeService;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
@@ -29,6 +30,7 @@ public class BikeController {
 
 
     @PostMapping
+    @PreAuthorize("hasAuthority('ADMIN')")
     public BikeDto saveBike(@RequestBody BikeInputDto dto) {
         var bike = bikeService.addBike(dto.toBike());
         return BikeDto.fromBike(bike);
@@ -41,12 +43,14 @@ public class BikeController {
     }
 
     @DeleteMapping("/{id}")
+    @PreAuthorize("hasAuthority('ADMIN')")
     public ResponseEntity<Object> removeBike(@PathVariable("id") long id) {
         bikeService.removeBike(id);
         return ResponseEntity.noContent().build();
     }
 
     @PutMapping(value = "/{id}")
+    @PreAuthorize("hasAuthority('ADMIN')")
     public BikeDto updateBike(@PathVariable("id") @RequestBody BikeInputDto dto) {
         var bike = bikeService.addBike(dto.toBike());
         return BikeDto.fromBike(bike);

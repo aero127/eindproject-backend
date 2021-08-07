@@ -7,6 +7,7 @@ import nl.mtbrental.eindproject.model.User;
 import nl.mtbrental.eindproject.repository.BikeRepository;
 import nl.mtbrental.eindproject.repository.BookingRepository;
 import nl.mtbrental.eindproject.repository.UserRepository;
+import org.checkerframework.checker.nullness.Opt;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.ArgumentCaptor;
@@ -15,14 +16,12 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
-import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)
@@ -52,59 +51,77 @@ public class BookingServiceImplTest {
     }
 
 
-//    @Test
-//    public void getBookingByIdTest() {
-//        Booking booking = new Booking();
-//        booking.setId(1L);
-//        Long id = booking.getId();
-//        when(bookingRepository.findById(id)).thenReturn(Optional.of(booking));
-//        Optional<Booking> bookingOptional = bookingService.getBooking(id);
-//    }
+    @Test
+    public void getBookingByIdTest() {
+        Booking booking = new Booking();
+        booking.setId(1L);
+        Long id = booking.getId();
+        when(bookingRepository.getById(id)).thenReturn(booking);
+
+        var booking1 = bookingService.getBooking(1L);
+        assertThat(booking1.getId()).isEqualTo(1L);
+    }
 
 //    @Test
 //    public void getAllBookingsByUsernameTest() {
-//    Bike bike = new Bike();
-//    bike.setId(1L);
-//    when(bikeRepository.findById(1L)).thenReturn(Optional.of(bike));
 //
-//    User user = new User();
-//    user.setUsername("testuser");
-//    when(bookingRepository.findByUser(user)).thenReturn((List<Booking>) user);
-//
-//    bookingService.getBookingsByUsername("testuser");
-//
-//    verify(bookingRepository).save(bookingCaptor.capture());
-//
-//    Booking booking = bookingCaptor.getValue();
-//    assertThat(booking.getUser()).isEqualTo(user);
-//    }
-
-//    @Test
-//    public void saveBookingTest() {
-//        Booking booking = new Booking();
-//        booking.setId(1L);
-//        booking.setAmount(1);
-//        when(bookingRepository.findById(1L)).thenReturn(Optional.of(booking));
-//
+//        var ListBooking = new ArrayList<>();
 //        Bike bike = new Bike();
 //        bike.setId(1L);
-//        bike.setPricePerDay(55L);
-//        bike.setQuantityTotal(200);
 //        when(bikeRepository.findById(1L)).thenReturn(Optional.of(bike));
 //
-//        User user = new User();
-//        user.setUsername("testuser");
-//        when(userRepository.findById("testuser")).thenReturn(Optional.of(user));
+//        User testuser = new User();
+//        testuser.setUsername("testuser");
 //
-//        bookingService.saveBooking(booking, 1L, "testuser");
+//        User testuser2 = new User();
+//        testuser2.setUsername("testuser2");
 //
-//        verify(bookingRepository).save(bookingCaptor.capture());
+//        Booking booking1 = new Booking();
+//        booking1.setUser(testuser);
 //
-//        booking = bookingCaptor.getValue();
-//        assertThat(booking.getUser()).isEqualTo(user);
+//        Booking booking2 = new Booking();
+//        booking2.setUser(testuser);
 //
+//        Booking booking3 = new Booking();
+//        booking3.setUser(testuser2);
+//
+//        ListBooking.add(booking1);
+//        ListBooking.add(booking2);
+//        ListBooking.add(booking3);
+//
+//        when(userRepository.findById("testuser")).thenReturn(Optional.of(testuser));
+//        bookingService.getBookingsByUsername("testuser");
+//
+//
+//        when(bookingRepository.findBookingByUser(testuser)).thenReturn(List.of(booking1, booking2, booking3));
+//        List<Booking> bookingList =  bookingService.getBookings();
+//        assertThat(ListBooking).isEqualTo(2);
 //    }
 
 
+    @Test
+    public void saveBookingTest() {
+        Booking booking = new Booking();
+        booking.setId(1000L);
+        booking.setAmount(1);
+
+        Bike bike = new Bike();
+        bike.setId(1L);
+        bike.setPricePerDay(55L);
+        bike.setQuantityTotal(200);
+        when(bikeRepository.findById(1L)).thenReturn(Optional.of(bike));
+
+        User user = new User();
+        user.setUsername("testuser");
+        when(userRepository.findById("testuser")).thenReturn(Optional.of(user));
+
+        bookingService.saveBooking(booking, 1L, "testuser");
+
+        verify(bookingRepository).save(bookingCaptor.capture());
+
+        booking = bookingCaptor.getValue();
+        assertThat(booking.getUser()).isEqualTo(user);
+
+    }
 
 }
