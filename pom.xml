@@ -9,12 +9,12 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 
-	<groupId>nl.gettoworktogether</groupId>
-	<artifactId>security_with_jwt</artifactId>
+	<groupId>com.mtbrental</groupId>
+	<artifactId>eindproject mtbrental</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 
-	<name>security_with_users_table</name>
-	<description>Demo project for Spring Security</description>
+	<name>eindproject_mtbrental</name>
+	<description>eindproject mtbrental</description>
 
 	<properties>
 		<java.version>11</java.version>
