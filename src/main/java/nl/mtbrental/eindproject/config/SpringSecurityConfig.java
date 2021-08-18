@@ -53,14 +53,13 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
 
-        //JWT token authentication
+
         http
             .csrf().disable()
             .authorizeRequests()
                 .antMatchers("/users/register").permitAll()
                 .antMatchers("/authenticate").permitAll()
                 .antMatchers("/authenticated").authenticated()
-//                .anyRequest().permitAll()
                 .antMatchers(HttpMethod.GET,"/users/").hasRole("ADMIN")
                 .antMatchers(HttpMethod.GET,"/users/{username}").authenticated()
                 .antMatchers(HttpMethod.POST,"/users/{username}").authenticated()
@@ -70,14 +69,12 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers(HttpMethod.GET,"/users/{username}/authorities").hasRole("ADMIN")
                 .antMatchers(HttpMethod.POST,"/users/{username}/authorities").hasRole("ADMIN")
                 .antMatchers(HttpMethod.DELETE,"/users/{username}/authorities/{authority}").hasRole("ADMIN")
-//                .antMatchers(HttpMethod.GET,"/bookings/?username={username}").authenticated()
                 .antMatchers(HttpMethod.GET,"/bookings/").authenticated()
                 .antMatchers(HttpMethod.POST,"/bookings/").authenticated()
                 .antMatchers(HttpMethod.GET,"/bookings/{id}").authenticated()
                 .antMatchers(HttpMethod.DELETE,"/bookings/{id}").hasRole("ADMIN")
                 .antMatchers("/bikes").hasRole("ADMIN")
                 .antMatchers("/bikes/{id}").hasRole("ADMIN")
-//                .antMatchers(HttpMethod.GET,"/bookings/?date=").hasRole("ADMIN")
                 .antMatchers(HttpMethod.GET,"/bookings/?bikeId=").hasRole("ADMIN")
                 .and()
                 .cors().and()

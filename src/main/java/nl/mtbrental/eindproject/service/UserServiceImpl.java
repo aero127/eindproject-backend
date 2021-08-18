@@ -27,18 +27,10 @@ public class UserServiceImpl implements UserService {
     @Autowired
     private UserRepository userRepository;
 
-//    @Autowired
-//    private AuthorityRepository authorityRepository;
-
     @Override
     public List<User> getUsers() {
         return userRepository.findAll();
     }
-
-
-//    public User getUserById(Long id) {
-//        return userRepository.findById(id);
-//    }
 
     @Override
     public Optional<User> getUser(String username) {
